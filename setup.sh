@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-source /home/codespace/venv/bin/activate
-#append it to bash so every shell launches with it 
-echo 'source /home/codespace/venv/bin/activate' >> ~/.bashrc
-make install-tensorflow
+## Install rustup and common components
+curl https://sh.rustup.rs -sSf | sh -s -- -y 
+source "$HOME/.cargo/env"
