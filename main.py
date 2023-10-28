@@ -7,7 +7,7 @@ from mylib.transform_load import load
 from mylib.query import query
 
 
-def main(the_query):
+def main(query):
     """Run the ETL process"""
     # Extract
     print("Extracting data...")
@@ -15,15 +15,15 @@ def main(the_query):
 
     # Transform and load
     print("Transforming data...")
-    load(the_query)
+    load(query)
 
     # Query
     print("Querying data...")
-    query(the_query)
+    query(query)
 
 
 if __name__ == "__main__":
-    
+    query = "SELECT COUNT(*) FROM table1"
     #load("SELECT COUNT(*) FROM table1")
-    fire.Fire(main)
+    fire.Fire(main(query))
     #query("SELECT COUNT(*) FROM table1")
