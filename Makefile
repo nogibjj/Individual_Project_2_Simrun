@@ -4,19 +4,19 @@
 all: build test format lint clean
 
 build:
-	cargo build --manifest-path=crud/Cargo.toml
+	cargo build --manifest-path=rust_crud/Cargo.toml
 
 test:
-	cargo test --quiet --manifest-path ./crud/Cargo.toml
+	cargo test --quiet --manifest-path ./rust_crud/Cargo.toml
 
 format:
 	cargo fmt --manifest-path ./crud/Cargo.toml
 
 lint:
-	cargo clippy --quiet --manifest-path ./crud/Cargo.toml
+	cargo clippy --quiet --manifest-path ./rust_crud/Cargo.toml
 
 clean:
-	cargo clean --manifest-path ./crud/Cargo.toml
+	cargo clean --manifest-path ./rust_crud/Cargo.toml
 
 # Generate and push changes to GitHub
 generate_and_push:
