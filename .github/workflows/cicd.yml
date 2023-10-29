@@ -47,4 +47,4 @@ jobs:
         path: downloaded-artifact
 
     - name: Display Artifact
-      run: cat downloaded-artifact/output.txt
+      run: cat downloaded-artifact/output.txtgit 
