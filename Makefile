@@ -10,7 +10,7 @@ test:
 	cargo test --quiet --manifest-path ./rust_crud/Cargo.toml
 
 format:
-	cargo fmt --manifest-path ./crud/Cargo.toml
+	cargo fmt --manifest-path ./rust_crud/Cargo.toml
 
 lint:
 	cargo clippy --quiet --manifest-path ./rust_crud/Cargo.toml
