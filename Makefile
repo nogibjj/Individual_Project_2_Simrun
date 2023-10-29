@@ -1,25 +1,31 @@
-install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+# Targets
+.PHONY: all build test format lint clean
+
+all: build test format lint clean
+
+build:
+	cargo build --manifest-path=crud/Cargo.toml
 
 test:
-	python -m pytest -vv --cov=main --cov=mylib test_*.py
+	cargo test --quiet --manifest-path ./crud/Cargo.toml
 
-format:	
-	black *.py 
+format:
+	cargo fmt --manifest-path ./crud/Cargo.toml
 
 lint:
-	#disable comment to test speed
-	#pylint --disable=R,C --ignore-patterns=test_.*?py *.py mylib/*.py
-	#ruff linting is 10-100X faster than pylint
-	ruff check *.py mylib/*.py
+	cargo clippy --quiet --manifest-path ./crud/Cargo.toml
 
-container-lint:
-	docker run --rm -i hadolint/hadolint < Dockerfile
+clean:
+	cargo clean --manifest-path ./crud/Cargo.toml
 
-refactor: format lint
-
-deploy:
-	#deploy goes here
-		
-all: install lint test format deploy
+# Generate and push changes to GitHub
+generate_and_push:
+	@if [ -n "$$(git status --porcelain)" ]; then \
+		git config --local user.email "action@github.com"; \
+		git config --local user.name "GitHub Action"; \
+		git add .; \
+		git commit -m "Add query log"; \
+		git push; \
+	else \
+		echo "No changes to commit. Skipping commit and push."; \
+	fi
