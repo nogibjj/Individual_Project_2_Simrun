@@ -25,26 +25,20 @@ jobs:
       run: make lint
     - name: Test
       run: make test   
-    - name: Build
-      run: | 
-        echo "Hello, world!" > output.txt
 
-    - name: Publish Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: my-artifact
-        path: output.txt
+  - name: Archive and Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ml_pipeline-artifacts
+          path: ${{ github.workspace }}/output
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Download Artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: my-artifact
-        path: downloaded-artifact
-
-    - name: Display Artifact
-      run: cat downloaded-artifact/output.txtgit 
+      - name: Save to repository
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          echo GH_TOKEN: "${GH_TOKEN}"
+          git config --global user.name 'github-actions'
+          git config --local user.email "action@github.com"
+          git add .
+          git commit -m "Add results"
+          git push
