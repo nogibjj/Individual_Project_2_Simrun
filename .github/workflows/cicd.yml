@@ -27,7 +27,7 @@ jobs:
       run: make test   
     - name: Build
       run: | 
-        echo "Rust CRUD Operations" > output.txt
+        echo "RUST CRUD OPERATIONS" > output.txt
 
     - name: Publish Artifact
       uses: actions/upload-artifact@v2
@@ -48,4 +48,3 @@ jobs:
 
     - name: Display Artifact
       run: cat downloaded-artifact/output.txt
-```
