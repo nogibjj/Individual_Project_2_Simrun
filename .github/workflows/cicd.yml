@@ -44,6 +44,3 @@ jobs:
       with:
         name: my-artifact
         path: downloaded-artifact
-
-    - name: Display Artifact
-      run: downloaded-artifact
