@@ -46,4 +46,4 @@ jobs:
         path: downloaded-artifact
 
     - name: Display Artifact
-      run: cat downloaded-artifact
+      run: downloaded-artifact
