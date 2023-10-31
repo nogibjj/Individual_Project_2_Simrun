@@ -4,7 +4,10 @@
 all: build test format lint clean
 
 build:
-	cargo build --manifest-path=rust_crud/Cargo.toml
+	cargo build --release --manifest-path ./rust_crud/Cargo.toml
+
+copy:
+	cp rust_crud/target/release/rust_crud ./"Binary_Executable"
 
 test:
 	cargo test --quiet --manifest-path ./rust_crud/Cargo.toml
