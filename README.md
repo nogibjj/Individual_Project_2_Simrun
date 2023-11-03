@@ -1,4 +1,5 @@
 # CSV to SQLite Importer
+Youtube Link : https://youtu.be/jTOhYgCWTu0
 [![Rust CI/CD](https://github.com/nogibjj/Individual_Project_2_Simrun/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Individual_Project_2_Simrun/actions/workflows/cicd.yml)
 
 This is a command-line tool that imports data from a CSV file into an SQLite database, allows you to rename columns, and execute SQL queries on the imported data.
